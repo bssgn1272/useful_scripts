@@ -20,50 +20,101 @@
 # Create ~/Code/*
 # (where * represents the directories listed above)
 
-code_root=' '
+code_root=$HOME/Code
+learning=$code_root/Learning
+development=$code_root/Development
+testing=$code_root/Testing
+experimental=$code_root/Experimental
+prototypes=$code_root/Prototypes
+boilerplate=$code_root/Boilerplate
+
 # Step 1 - Change directory to $HOME
 
 change_directory() {
 
     print Changing directory...
-    code_root=$HOME
-
-    print Temporarily in $code_root
+    cd $HOME
+    print Temporarily in $HOME
 
 }
 
+# Step 2 - Check if $HOME/Code exists
 check_code_root() {
-    code_root=$HOME/Code
     print Checking existence of $code_root...
 
     if [[ -d $code_root ]]; then
         print Found. Changing directory...
         cd $code_root
     else
+        print Not found. Creating directory $code_root...
         create_code_root
     fi
 }
 
-create_code_root() {
-    print create_code_root
-        print Not found. Creating directory...
-        mkdir $code_root
-        print Directory created.
-}
+        # Step 3 - Create directory $HOME/Code
+        create_code_root() {
+            mkdir $code_root
+        }
 
+# Step 4 - Check and/or create directories
 create_code_directories() {
-    print create_code_directories
+
+    cd $code_root
+    print Checking existence of directories...
+
+    if [[ -d  $learning ]]; then
+        print Found $learning. Skipping...
+    else
+        print Not found. Creating directory $learning...
+        mkdir $learning
+    fi
+
+    if [[ -d  $development ]]; then
+        print Found $development. Skipping...
+    else
+        print Not found. Creating directory $development...
+        mkdir $development
+    fi
+
+    if [[ -d  $testing ]]; then
+        print Found $testing. Skipping...
+    else
+        print Not found. Creating directory $testing...
+        mkdir $testing
+    fi
+
+    if [[ -d  $experimental ]]; then
+        print Found $experimental. Skipping...
+    else
+        print Not found. Creating directory $experimental...
+        mkdir $experimental
+    fi
+
+    if [[ -d  $prototypes ]]; then
+        print Found $prototypes. Skipping...
+    else
+        print Not found. Creating directory $prototypes...
+        mkdir $prototypes
+    fi
+
+    if [[ -d  $boilerplate ]]; then
+        print Found $boilerplate. Skipping...
+    else
+        print Not found. Creating directory $boilerplate...
+        mkdir $boilerplate
+    fi
+
 }
 
 create_readme() {
-    print create_readme
+    cd $code_root
+    print Creating blank file README.md...
+    touch README.md
 }
 
 change_directory
 check_code_root
-create_code_root
-#create_code_directories
-#create_readme
+create_code_directories
+create_readme
 
-
-
+print Run ls $code_root to confirm creation of directories
