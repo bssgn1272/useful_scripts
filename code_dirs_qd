@@ -23,12 +23,6 @@
 
 code_root=$HOME/Code
 code_directories=('Learning' 'Development' 'Testing' 'Experimental' 'Prototypes' 'Boilerplate')
-learning=$code_root/$code_directories[1]
-development=$code_root/$code_directories[2]
-testing=$code_root/$code_directories[3]
-experimental=$code_root/$code_directories[4]
-prototypes=$code_root/$code_directories[5]
-boilerplate=$code_root/$code_directories[6]
 
 # Step 1 - Change directory to $HOME
 
