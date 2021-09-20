@@ -1,0 +1,69 @@
+#!/usr/bin/zsh
+
+# CODE_DIR_QD - Quick and Dirty
+# Smaller scoped version of code_dir
+# Create Code/* directories for storing source files
+# - Learning
+# - Development
+# - Testing
+# - Experimental
+# - Prototypes
+# - Boilerplate
+# Daniel M. Mwale
+# mwaled@napsa.co.zm
+# 2021-09-20
+# Version 1.0.0
+
+# Steps
+# Change directory to $HOME
+# Check if ~/Code exists
+# Create ~/Code/*
+# (where * represents the directories listed above)
+
+code_root=' '
+# Step 1 - Change directory to $HOME
+
+change_directory() {
+
+    print Changing directory...
+    code_root=$HOME
+
+    print Temporarily in $code_root
+
+}
+
+check_code_root() {
+    code_root=$HOME/Code
+    print Checking existence of $code_root...
+
+    if [[ -d $code_root ]]; then
+        print Found. Changing directory...
+        cd $code_root
+    else
+        create_code_root
+    fi
+}
+
+create_code_root() {
+    print create_code_root
+        print Not found. Creating directory...
+        mkdir $code_root
+        print Directory created.
+}
+
+create_code_directories() {
+    print create_code_directories
+}
+
+create_readme() {
+    print create_readme
+}
+
+change_directory
+check_code_root
+create_code_root
+#create_code_directories
+#create_readme
+
+
+
