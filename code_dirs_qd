@@ -66,42 +66,42 @@ create_code_directories() {
         print Found $learning. Skipping...
     else
         print Not found. Creating directory $learning...
-        mkdir $learning
+        create_learning
     fi
 
     if [[ -d  $development ]]; then
         print Found $development. Skipping...
     else
         print Not found. Creating directory $development...
-        mkdir $development
+        create_development
     fi
 
     if [[ -d  $testing ]]; then
         print Found $testing. Skipping...
     else
         print Not found. Creating directory $testing...
-        mkdir $testing
+        create_testing
     fi
 
     if [[ -d  $experimental ]]; then
         print Found $experimental. Skipping...
     else
         print Not found. Creating directory $experimental...
-        mkdir $experimental
+        create_experimental
     fi
 
     if [[ -d  $prototypes ]]; then
         print Found $prototypes. Skipping...
     else
         print Not found. Creating directory $prototypes...
-        mkdir $prototypes
+        create_prototypes
     fi
 
     if [[ -d  $boilerplate ]]; then
         print Found $boilerplate. Skipping...
     else
         print Not found. Creating directory $boilerplate...
-        mkdir $boilerplate
+        create_boilerplate
     fi
 
 }
@@ -112,6 +112,32 @@ create_readme() {
     touch README.md
 }
 
+# Create Directory functions
+create_learning() {
+        mkdir $learning
+}
+
+create_development() {
+        mkdir $development
+}
+
+create_testing() {
+        mkdir $testing
+}
+
+create_experimental() {
+        mkdir $experimental
+}
+
+create_prototypes() {
+        mkdir $prototypes
+}
+
+create_boilerplate() {
+        mkdir $boilerplate
+}
+
+# Begin script execution
 change_directory
 check_code_root
 create_code_directories
