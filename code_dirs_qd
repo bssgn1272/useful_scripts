@@ -12,12 +12,13 @@
 # Daniel M. Mwale
 # mwaled@napsa.co.zm
 # 2021-09-20
-# Version 1.0.0
+# Version 1.0.1
 
 # Steps
 # Change directory to $HOME
 # Check if ~/Code exists
 # Create ~/Code/*
+# Create README
 # (where * represents the directories listed above)
 
 code_root=$HOME/Code
@@ -52,12 +53,12 @@ check_code_root() {
     fi
 }
 
-        # Step 3 - Create directory $HOME/Code
-        create_code_root() {
-            mkdir $code_root
-        }
+# Called in Step 2 to create $HOME/Code if it does not exist
+create_code_root() {
+    mkdir $code_root
+}
 
-# Step 4 - Check and/or create directories
+# Step 3 - Check and/or create directories
 create_code_directories() {
 
     cd $code_root
@@ -71,14 +72,16 @@ create_code_directories() {
             create_directory
         fi
     done
-    }
+}
 
+# Step 4 - Create a blank README file
 create_readme() {
     cd $code_root
     print Creating blank file README.md...
     touch README.md
 }
 
+# Called in Step 3 if directory does not exist
 create_directory(){
     mkdir $directory
 }
