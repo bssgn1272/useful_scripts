@@ -25,7 +25,6 @@ code_root=$HOME/Code
 code_directories=('Learning' 'Development' 'Testing' 'Experimental' 'Prototypes' 'Boilerplate')
 
 # Step 1 - Change directory to $HOME
-
 change_directory() {
 
     print Changing directory...
